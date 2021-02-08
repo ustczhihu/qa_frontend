@@ -10,12 +10,11 @@
           >
           <div class="user-btn">
             <span class="btn-item">
-              <i class="iconfont el-icon-view"></i><b>{{ viewCount }}</b
+              <i class="el-icon-view"></i><b>{{ viewCount }}</b
               >浏览
             </span>
             <span class="btn-item">
-              <i class="iconfont el-icon-chat-line-square"></i
-              ><b>{{ answerCount }}</b
+              <i class="el-icon-chat-line-square"></i><b>{{ answerCount }}</b
               >回答
             </span>
           </div>
@@ -26,14 +25,14 @@
               :class="{ active: timeOrder }"
               @click="selectOrder('time')"
             >
-              <i class="iconfont el-icon-time"></i>时间
+              <i class="el-icon-time"></i>时间
             </div>
             <div
               class="count btn-iconfont"
               :class="{ active: countOrder }"
               @click="selectOrder('count')"
             >
-              <i class="iconfont el-icon-s-data"></i>分数
+              <i class="el-icon-s-data"></i>分数
             </div>
           </div>
         </div>

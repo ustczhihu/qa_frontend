@@ -10,16 +10,16 @@
             label-width="75px"
             label-position="left"
           >
-            <el-form-item label="昵称" prop="nickname">
+            <el-form-item label="昵称">
               <el-input v-model="userInfo.nickname"></el-input>
             </el-form-item>
-            <el-form-item label="性别" prop="gender">
+            <el-form-item label="性别">
               <el-radio-group v-model="userInfo.gender">
                 <el-radio-button label="0">男</el-radio-button>
                 <el-radio-button label="1">女</el-radio-button>
               </el-radio-group>
             </el-form-item>
-            <el-form-item label="个人简介" prop="desc">
+            <el-form-item label="个人简介">
               <el-input
                 type="textarea"
                 :rows="2"
@@ -40,7 +40,7 @@
               :on-success="handleAvatarSuccess"
               :before-upload="beforeAvatarUpload"
             >
-              <img :src="userInfo.avatarUrl" @click="uploadimg" />
+              <img :src="userInfo.avatarUrl" />
             </el-upload>
           </div>
           <a
@@ -76,13 +76,13 @@
         </ul>
         <ul class="c-l-list" v-if="myQuestion">
           <li class="c-l-item" v-for="q in questionList" :key="q.id">
-            <div class="l-container" @click="goDetail(q.id)">
+            <div class="l-container">
               <div class="data-info fr">
                 <span class="view-info"
-                  ><i class="iconfont el-icon-view"></i>{{ q.viewCount }}</span
+                  ><i class="el-icon-view"></i>{{ q.viewCount }}</span
                 >
                 <span class="answercount-info"
-                  ><i class="iconfont el-icon-chat-line-square"></i
+                  ><i class="el-icon-chat-line-square"></i
                   >{{ q.answerCount }}</span
                 >
               </div>
@@ -125,7 +125,7 @@
         </ul>
         <ul class="c-l-list" v-if="myAnswer">
           <li class="c-l-item" v-for="a in answerList" :key="a.id">
-            <div class="l-container" @click="goDetail(a.id)">
+            <div class="l-container">
               <div class="answer-info">
                 <div class="user-info fl">
                   <a href="javascript:;" :title="a.creator.nickname">
@@ -194,7 +194,15 @@ export default {
     this.getQuestionListByUserId()
     this.getUserInfo()
   },
-
+  filters: {
+    content_ellipsis(value) {
+      if (!value) return ''
+      if (value.length > 99) {
+        return value.slice(0, 99) + '...'
+      }
+      return value
+    },
+  },
   methods: {
     delAnswer(aid) {
       this.$confirm('此操作将永久删除该问题, 是否继续?', '提示', {

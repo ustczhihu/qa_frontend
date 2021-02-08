@@ -17,21 +17,21 @@
           :class="{ active: timeOrder }"
           @click="selectOrder('updatetime')"
         >
-          <i class="iconfont el-icon-time"></i>时间
+          <i class="el-icon-time"></i>时间
         </div>
         <div
           class="answercount btn-iconfont"
           :class="{ active: answerCountOrder }"
           @click="selectOrder('answercount')"
         >
-          <i class="iconfont el-icon-chat-line-square"></i>回答数
+          <i class="el-icon-chat-line-square"></i>回答数
         </div>
         <div
           class="view btn-iconfont"
           :class="{ active: viewOrder }"
           @click="selectOrder('viewcount')"
         >
-          <i class="iconfont el-icon-view"></i>浏览数
+          <i class="el-icon-view"></i>浏览数
         </div>
 
         <button class="btn-publish" @click="goPublish">发布问题</button>
@@ -41,10 +41,10 @@
           <div class="l-container" @click="goDetail(q.id)">
             <div class="data-info fr">
               <span class="view-info"
-                ><i class="iconfont el-icon-view"></i>{{ q.viewCount }}</span
+                ><i class="el-icon-view"></i>{{ q.viewCount }}</span
               >
               <span class="answercount-info"
-                ><i class="iconfont el-icon-chat-line-square"></i
+                ><i class="el-icon-chat-line-square"></i
                 >{{ q.answerCount }}</span
               >
             </div>
